@@ -1,0 +1,45 @@
+<!--pages/daily/daily_list/daily_list.wxml-->
+<meta name="referrer" content="no-referrer" />
+<view class="container">
+    <scroll-view class="content" scroll-y bindscrolltolower="scrollBottom">
+        <view class="tablebox" wx:key="unique" wx:for="{{dailyList}}" wx:for-index="index" wx:for-item="list">
+            <view class="info">
+                <view><image  referrer="no-referrer|origin|unsafe-url" class="image" src="{{list.image?list.image:default}}"></image></view>
+                <view class="subtitle">
+                    <view class="name">{{list.name}}</view>
+                    <view>{{list.time}}</view>
+                </view>
+
+            </view>
+            <view class="content-title">
+                <view class="mood">心情：<image class="img-mood" src="{{mood[list.mood]}}" ></image></view>
+                <view class="weather">天气：<image class="img-weather" src="{{weather[list.weather]}}" ></image></view>
+            </view>
+            <text class="content-box">{{list.description}}</text>
+            <view class="icon-table">
+                <view wx:if="{{list.tag_name !== null}}" bind:tap="goTagList" class="tag-text" data-id="{{list.tag_id}}" data-name="{{list.tag_name}}"># {{list.tag_name}}</view>
+                <view>
+                    <image class="img-icon" alt="" src="{{like}}" />
+                </view>
+                <view bind:tap="comment" class="comment-bar"
+                data-indx="{{index}}" data-dailyid="{{list.id}}">
+                    <image class="img-icon" alt="" src="{{comment}}"/>
+                    <view wx:if="{{list.sum!==0}}" class="comment-num">{{list.sum}}</view>
+                </view>
+            </view>
+            <view wx:if="{{list.sum!==0}}" class="comment-list"
+            bind:tap="comment" data-indx="{{index}}" data-dailyid="{{list.id}}">
+                <view class="comment-box" wx:key="unique" wx:for="{{list.first_comments}}" wx:for-index="idx" wx:for-item="comment">
+                    <view class="comment-user">{{comment.user_name}}：</view>
+                    <view class="comment-content">{{comment.content}}</view>
+                    <view wx:if="{{comment.subsum!==0}}">( {{comment.subsum}}回复 )</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="add" bind:tap="addDaily">
+        <image class="add-image" src="../../../images/plus.png"/>
+        <view class="">发帖</view>
+    </view>
+</view>
+<comment bindcommentRefresh='commentRefresh' id='comment' title='评论' ></comment>

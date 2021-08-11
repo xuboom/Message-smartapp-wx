@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/daily/daily_list/daily_list",
+          "pathName": "pages/daily/daily_list/daily_list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/home/home",
+          "pathName": "pages/user/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/daily/add_daily/add_daily",
+          "pathName": "pages/daily/add_daily/add_daily",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

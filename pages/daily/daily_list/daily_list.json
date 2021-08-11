@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "comment":"/component/comment/comment"
+  },
+  "navigationBarTitleText": "小徐的黑洞"
+}

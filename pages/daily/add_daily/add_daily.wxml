@@ -1,0 +1,50 @@
+<!--pages/daily/add_daily/add_daily.wxml-->
+<view class="container">
+    <form class="box" bindsubmit="submit">
+        <view>
+            <textarea bindinput="bindInput" class="inputarea" name='content' maxlength="-1" placeholder="记录一下吧.."
+                confirm-type="换行" />
+        </view>
+        <picker mode="selector" range="{{tagList}}" name="tag" range-key="tag_name" data-input="tag"
+            disabled="{{tag_default}}" bind:change="selectorChange" bindinput="bindInput">
+            <view class="choose-tag">
+                <view class="tagtitle">记得给daily分类（选）</view>
+                <view class="select-text" wx:if="{{tag_id!==''}}">
+                    # {{tag_text}}
+                </view>
+                <view class="right-icon">
+                    <image class="right-icon" src="../../../images/row-right.png" />
+                </view>
+            </view>
+
+        </picker>
+        <picker mode="selector" range="{{mood}}" name="mood" range-key="name" data-input="mood"
+            bind:change="selectorChange" bindinput="bindInput">
+            <view class="choose-mood">
+                <view class="tagtitle">选择一个心情吧</view>
+                <view class="select-icon" wx:if="{{select_mood!==''}}">
+                    <image class="right-icon" src="{{mood_image}}" />
+                </view>
+                <view class="right-icon">
+                    <image class="right-icon" src="../../../images/row-right.png" />
+                </view>
+            </view>
+        </picker>
+        <picker mode="selector" range="{{weather}}" name="weather" range-key="name" data-input="weather"
+            bind:change="selectorChange">
+            <view class="choose-weather">
+                <view class="tagtitle">今天天气怎么样</view>
+                <view class="select-weather" wx:if="{{select_weather!==''}}">
+                    <image class="select-weather" src="{{weather_image}}">
+                    </image>
+                </view>
+
+                <view class="right-icon">
+                    <image class="right-icon" src="../../../images/row-right.png" />
+                </view>
+            </view>
+
+        </picker>
+        <button class="submit-button" form-type="submit">提交</button>
+    </form>
+</view>

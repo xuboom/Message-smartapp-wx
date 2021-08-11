@@ -1,0 +1,50 @@
+<view class="container">
+    <!--to do-->
+    <!--屏幕背景变暗的背景  -->
+    <view class="background_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+    <!--弹出框  -->
+    <view animation="{{animationData}}" class="attr_box" wx:if="{{showModalStatus}}">
+        <view class="title">
+            <image class="back" src="../../images/row-left.png" bindtap="hideModal"></image>
+            <view class="ctTitle">{{title}}</view>
+        </view>
+        <view class="none-info" wx:if="{{comments.length===0}}">
+            <image class="empty" src="../../images/empty.png" />
+            <view>暂无评论</view>
+        </view>
+        <scroll-view wx:else class="comment-list" scroll-y="true">
+            <view class="comment-box" wx:key="unique" wx:for="{{comments}}" wx:for-idex="index" wx:for-item="item">
+                <view class="user">
+                    <image class="user-img" src="{{item.userinfo.image}}"></image>
+                </view>
+                <view class="user-box">
+                    <view class="username">{{item.userinfo.name}}</view>
+                    <view class="content">{{item.content}}</view>
+                    <view class="foot">
+                        <view class="comment-time">{{item.time}}</view>
+                        <view bind:tap="comment" class="comment-bar">
+                            <img class="img-icon" alt="" src="{{comment}}" />
+                        </view>
+                    </view>
+                    <view wx:if="{{item.children}}" wx:key="unique" wx:for="{{item.children}}" wx:for-index="idx" wx:for-item="subitem" class="subcomment">
+                        <view class="username">{{subitem.userinfo.name}} 回复：{{subitem.author_name}}</view>
+                        <view class="content">{{subitem.content}}</view>
+                        <view class="foot">
+                            <view class="comment-time">{{subitem.time}}</view>
+                            <view bind:tap="comment" class="comment-bar">
+                                <img class="img-icon" alt="" src="{{comment}}" />
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        
+        <form class="formbox" bindsubmit="submit">
+            <view class="formbox">
+                <input class="input-box" type="text" name='content' placeholder='添加一条评论吧~' />
+                <button class="thresholdBtn" bind:tap="hideModal" form-type="submit">确定</button>
+            </view>
+        </form>
+    </view>
+</view>
