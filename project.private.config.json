@@ -35,6 +35,18 @@
           "pathName": "pages/daily/add_daily/add_daily",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/user/register/register",
+          "pathName": "pages/user/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/info_edit/info_edit",
+          "pathName": "pages/user/info_edit/info_edit",
+          "query": "",
+          "scene": null
         }
       ]
     }

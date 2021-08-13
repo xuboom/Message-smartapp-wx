@@ -5,7 +5,7 @@
             <view class="imgbar">
                 <image class="image" src="{{userinfo.image}}"></image>
                 <view class="title-btn">
-                    <button class="edit-button">编辑资料</button>
+                    <button class="edit-button" bind:tap="edit">编辑资料</button>
                     <button class="edit-button" bind:tap="logout">退出登录</button>
                 </view>
             </view>

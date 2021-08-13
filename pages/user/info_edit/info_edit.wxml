@@ -1,0 +1,83 @@
+<!--pages/user/user_info/user_info.wxml-->
+<view class="container">
+  <view class='page-name'>注册页面（*为必填项）</view>
+  <form bindsubmit="formSubmit">
+    <view class="form-box">
+      <view class="item">
+        <image class="image" src="/images/user.png"></image>
+        <view class="title">修改头像（暂不支持）</view>
+      </view>
+      <view class="item">
+        <text class="title">取个名字 *</text>
+        <input bindblur="blur" data-id='name' name='name' placeholder="{{placehold.name?'请输入名字':''}}"/>
+      </view>
+      <view class="item">
+        <text class="title">性别 *</text>
+        <view>
+          <radio-group name='sex' bindchange="radioChange">
+            <label class="radio-choose" wx:for="{{sex}}" wx:key="unique">
+              <view>
+                <radio name='sex' value="{{item.value}}" />
+              </view>
+              <view class="weui-cell__bd">{{item.name}}</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="item">
+        <text class="title">年龄 *</text>
+        <input type="number" bindblur="blur" data-id='age' name='age' placeholder="{{placehold.age?'请输入年龄':''}}"/>
+      </view>
+      <view class="item">
+        <text class="title">生日 *</text>
+        <picker name='birthday' mode="date" value="{{date}}" start="1980-01-01" end="{{now}}" bindchange="bindDateChange">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </view>
+      <view class="item">
+        <text class="title">email *</text>
+        <input name='email' bindblur="blur" data-id='email' placeholder="{{placehold.email?'请输入email':''}}"/>
+      </view>
+      <view class="item">
+        <text class="title">联系方式 *</text>
+        <input type="number" name='phone' bindblur="blur" data-id='phone' placeholder="{{placehold.phone?'请输入联系方式':''}}"/>
+      </view>
+      <view class="item">
+        <text class="title">地址 *</text>
+        <input name='address' bindblur="blur" data-id='address' placeholder="{{placehold.address?'请输入地址':''}}"/>
+      </view>
+      <view class="item">
+        <text class="title">密码 *</text>
+        <input name='password_first' password bindblur="blur" data-id='password' placeholder="{{placehold.password?'请输入密码':''}}"/>
+      </view>
+      <view class="item">
+        <view class="pass">
+          <text>确认密码 *</text>
+          <text class="again" wx:if="{{!isSame}}">两次密码输入不一致</text>
+        </view>
+        <input name='password_second' password bindblur="blur" data-id='pass' placeholder="{{placehold.pass?'请确认密码':''}}"/>
+      </view>
+      <view class="item">
+        <text class="title">完善个人简介 *</text>
+        <textarea name='introduction' auto-height="true"></textarea>
+      </view>
+    </view>
+    <button class="{{isCheck?'button-commit':'button-default'}}" formType="submit">提交注册</button>
+  </form>
+  <!-- <view class="info">
+    <view class="imgbar">
+      <image class="image" src=""></image>
+    </view>
+    <view class="description">
+      <view class="name">昵称：</view>
+      <view class="name">性别：</view>
+    </view>
+    <view class="name">生日：</view>
+    <view class="name">邮箱：</view>
+    <view class="name">电话：</view>
+    <view class="name">地址：</view>
+    <view class="name">简介：</view>
+  </view> -->
+</view>

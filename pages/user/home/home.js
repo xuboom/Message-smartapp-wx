@@ -167,5 +167,10 @@ Page({
         wx.reLaunch({
             url: '../../index/index'
         });
+    },
+    edit(){
+        wx.navigateTo({
+          url: '/pages/user/info_edit/info_edit',
+        })
     }
 });

@@ -1,43 +1,34 @@
 <!--pages/index/index.wxml-->
 <view class="container">
-    <image class="logo" src="../../images/smartapp.png"/>
+    <image class="logo" src="../../images/smartapp.png" />
     <view class="userinfo">
         <form bindsubmit="formSubmit" class="form">
-            <view class="list-area border-bottom">
+            <view class="list-area">
                 <view class="list-item-key">用户名</view>
                 <view class="list-item-value">
-                    <input
-                    value="{{username}}"
-                    type="text"
-                    bindinput="bindKeyInput"
-                    name="selfName"
-                    id="selfName"
-                    adjust-position="true"
-                    placeholder='请输入用户名' />
+                    <input value="{{username}}" type="text" bindinput="bindKeyInput" name="selfName" id="selfName"
+                        adjust-position="true" placeholder='请输入用户名' />
                 </view>
             </view>
-            <view class="list-area border-bottom">
+            <view class="list-area">
                 <view class="list-item-key">密码</view>
                 <view class="list-item-value">
-                    <input
-                    value="{{password}}"
-                    type="{{showtype}}"
-                    bindinput="bindKeyInput"
-                    name='selfPassword'
-                    id='selfPassword'
-                    adjust-position="true"
-                    placeholder='请输入密码' />
-                    <image bind:tap="show" class="showimg" src="{{isShow? '/images/open.png' : '/images/close.png' }}"/>
+                    <input value="{{password}}" type="{{showtype}}" bindinput="bindKeyInput" name='selfPassword'
+                        id='selfPassword' adjust-position="true" placeholder='请输入密码' />
+                    <image bind:tap="show" class="showimg"
+                        src="{{isShow? '/images/open.png' : '/images/close.png' }}" />
                 </view>
             </view>
             <view class="block-area">
-                <checkbox class="block border-bottom" checked="{{isRemember}}" bind:tap="check"></checkbox>
-                <text>是否记住用户名及密码</text>
+                <view>
+                    <checkbox class="block border-bottom" checked="{{isRemember}}" bind:tap="check"></checkbox>
+                    <text>是否记住用户名及密码</text>
+                </view>
+                <view class="register" bind:tap="register">没有账号？赶紧来注册</view>
             </view>
-            <button class="{{isInput?'button-commit':'button-default'}}"formType="submit">
+            <button class="{{isInput?'button-commit':'button-default'}}" formType="submit">
                 登录
             </button>
         </form>
     </view>
 </view>
-

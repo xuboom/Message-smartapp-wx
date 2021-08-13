@@ -110,7 +110,6 @@ Page({
         })
     },
     comment (e) {
-        console.log('eeeeee',e);
         const params= {
             dailyid: e.currentTarget.dataset.dailyid,
             indx: e.currentTarget.dataset.indx
@@ -118,7 +117,6 @@ Page({
         this.popup.changeRange(params);
     },
     commentRefresh: function (e) {
-        console.log('ce',e)
         this.getFirstComment(e.detail);
     }
 });

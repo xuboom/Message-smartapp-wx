@@ -19,10 +19,15 @@ Component({
     //弹窗显示控制
     showModalStatus: false,
     comments: [],
+    isFocus: false,
+    isInput: true,
     indx: '',
     userid: '',
     daily_id: '',
-    comment: '../../../images/Chat.png',
+    sub_id: 0,
+    parent_id: 0,
+    defaultText: '添加一条评论吧~',
+    comment: '../../images/Chat.png',
   },
   /**
    * 组件的方法列表
@@ -117,7 +122,6 @@ Component({
         daily_id: daily_id,
         comments: res.data
       })
-      console.log('ccc', this.data.comments)
     },
     transArr(node) {
       let queue = node;
@@ -128,6 +132,7 @@ Component({
           comment_id: item.comment_id,
           daily_id: item.daily_id,
           user_id: item.user_id,
+          sub_id: item.sub_id,
           content: item.content,
           time: item.time,
           parent_id: item.parent_id,
@@ -143,17 +148,48 @@ Component({
       }
       return data
     },
+    comment(e) {
+      let sub = e.currentTarget.dataset.sub===0 
+      ? e.currentTarget.dataset.parent
+      : e.currentTarget.dataset.sub;
+      this.setData({
+        parent_id: e.currentTarget.dataset.parent,
+        sub_id: sub,
+        isFocus: true,
+        defaultText: '回复他点什么'
+      })
+    },
+    blur(e) {
+      if (e.detail.value===""){
+        this.setData({
+        parent_id: 0,
+        sub_id: 0,
+        isFocus: false,
+        defaultText: '添加一条评论吧~'
+      })
+      }
+    },
+    input(e) {
+      if (e.detail.value!==""){
+        this.setData({
+          isInput: false,
+        })
+      }else {
+        this.setData({
+          isInput: true,
+        })
+      }
+    },
     async submit(e) {
       let d = new Date();
       let time = d.getFullYear().toString() + "-" + (d.getMonth() + 1).toString() + "-" + d.getDate().toString() + " " + d.getHours().toString() + ":" + d.getMinutes().toString();
-      console.log(this.data.userid, this.data.daily_id, time, e.detail.value.content)
       const result = await app.http.post(
         api.API_ADDCOMMENT, {
           user_id: this.data.userid,
           daily_id: this.data.daily_id,
           content: e.detail.value.content,
-          parent_id: 0,
-          sub_id: 0,
+          parent_id: this.data.parent_id,
+          sub_id: this.data.sub_id,
           time: time,
         },
       );

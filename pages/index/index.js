@@ -28,7 +28,6 @@ Page({
                        password: data.password,
                        ischeck:[1,1],
                        isInput: true,
-                       showtype: true,
                        isRemember: true
                    })
                 }
@@ -176,5 +175,10 @@ Page({
                 }
             });
         }
+    },
+    register() {
+        wx.navigateTo({
+          url: '/pages/user/register/register',
+        })
     }
 })

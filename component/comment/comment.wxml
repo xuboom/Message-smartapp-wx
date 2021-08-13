@@ -22,8 +22,8 @@
                     <view class="content">{{item.content}}</view>
                     <view class="foot">
                         <view class="comment-time">{{item.time}}</view>
-                        <view bind:tap="comment" class="comment-bar">
-                            <img class="img-icon" alt="" src="{{comment}}" />
+                        <view bind:tap="comment" class="comment-bar" data-parent="{{item.comment_id}}" data-sub="{{item.sub_id}}">
+                            <image class="img-icon" alt="" src="{{comment}}"></image>
                         </view>
                     </view>
                     <view wx:if="{{item.children}}" wx:key="unique" wx:for="{{item.children}}" wx:for-index="idx" wx:for-item="subitem" class="subcomment">
@@ -31,8 +31,8 @@
                         <view class="content">{{subitem.content}}</view>
                         <view class="foot">
                             <view class="comment-time">{{subitem.time}}</view>
-                            <view bind:tap="comment" class="comment-bar">
-                                <img class="img-icon" alt="" src="{{comment}}" />
+                            <view bind:tap="comment" class="comment-bar" data-parent="{{subitem.comment_id}}" data-sub="{{subitem.sub_id}}">
+                                <image class="img-icon" alt="" src="{{comment}}"></image>
                             </view>
                         </view>
                     </view>
@@ -42,8 +42,8 @@
         
         <form class="formbox" bindsubmit="submit">
             <view class="formbox">
-                <input class="input-box" type="text" name='content' placeholder='添加一条评论吧~' />
-                <button class="thresholdBtn" bind:tap="hideModal" form-type="submit">确定</button>
+                <input bindinput="input" bindblur="blur" class="input-box" type="text" focus='{{isFocus}}' name='content'  placeholder='{{defaultText}}' />
+                <button class="thresholdBtn" bind:tap="hideModal"  disabled="{{isInput}}" form-type="submit">确定</button>
             </view>
         </form>
     </view>

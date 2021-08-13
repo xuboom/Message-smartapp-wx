@@ -1,0 +1,144 @@
+/* pages/user/user_info/user_info.wxss */
+page {
+  height: 100%;
+} 
+
+.page-name {
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 32rpx;
+}
+
+.info {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  border-radius: 16rpx;
+  background-color: rgba(212,196,219,0.3);
+  width:100%;
+  padding:20rpx;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 40rpx;
+  font-size: 32rpx;
+  background: rgba(187,160,203,0.5);
+  /* height: 100%; */
+  color: rgba(124,80,157);
+  box-sizing: border-box;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+  border-bottom: solid 1rpx rgba(187,160,203,0.5);
+}
+
+.image {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  border: solid 2rpx rgba(124,80,157);
+}
+
+.title {
+  margin-bottom: 10rpx;
+}
+
+.pass {
+  margin-bottom: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.again {
+  color: rgba(255, 0, 0, 0.6);
+  margin-left: 32rpx;
+}
+
+input {
+  margin-bottom: 10rpx;
+  padding-left: 10rpx;
+  color: rgba(124,80,157,0.5);
+  /* border: solid 1rpx rgba(124,80,157,0.2);
+  width: 50%; */
+}
+
+textarea {
+  margin-bottom: 10rpx;
+  padding-left: 10rpx;
+  color: rgba(124,80,157,0.5);
+}
+
+.picker {
+  margin-bottom: 10rpx;
+  color: rgba(124,80,157,0.5);
+  padding-left: 10rpx;
+  /* border: solid 1rpx rgba(124,80,157,0.2);
+  width: 50%; */
+}
+
+radio-group {
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx;
+  justify-content: space-between;
+}
+
+.radio-choose {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10rpx;
+  color: rgba(124,80,157,0.5);
+}
+
+.button-default {
+  margin-top: 70rpx;
+  padding: 26rpx;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 32rpx;
+  border: none;
+  font-size: 34rpx;
+  color: rgba(124,80,157,0.5);
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.button-default::after {
+  border: none;
+}
+
+.button-commit {
+  margin-top: 70rpx;
+  padding: 26rpx;
+  width: 100%;
+  border-radius: 10rpx;
+  background-image: linear-gradient(-44deg, #fff 0%, #E6E6FA 48%, #fff 81%);
+  font-size: 34rpx;
+  margin-bottom: 32rpx;
+  color: #7B68EE;
+  letter-spacing: 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+.button-commit::after {
+  border: none;
+}
